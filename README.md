@@ -27,28 +27,39 @@ cd docker-jenkins-Apache2
 
 # Build and push the Docker image
 
+```bash
 docker build -t <your-docker-username>/website:v1 .
 docker login
 docker push <your-docker-username>/website:v1
+```
 
 # Apply Apache Deployment
 
+```bash
 kubectl apply -f apache-deployment.yaml
+````
 
 # Apply Custom Website Deployment
 
+```bash
 kubectl apply -f website-deployment.yaml
+```
 
 # Create Apache Service
 
+```bash
 kubectl apply -f apache-service.yaml
+```
 
 # Create Custom Website Service
 
+```bash
 kubectl apply -f website-service.yaml
-
+`````
 # Apply Ingress configuration
 
+```bash
 kubectl apply -f ingress.yaml
+```
 
 After completing these steps, your Apache and custom website should be accessible through the Ingress' IP under /apache and /custom paths respectively.
